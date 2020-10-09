@@ -67,7 +67,6 @@ services:
       args:
         redis_version: '6.0.8'
     hostname: server
-    command: bash
     depends_on:
       - redis1
       - redis2

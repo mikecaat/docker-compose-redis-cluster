@@ -1,0 +1,28 @@
+# docker-compose -f docker-compose.yml -f docker-compose.scaleout.yml run redis-scale-out
+version: '3'
+services:
+  redis-scale-out:
+    tty: true
+    build:
+      context: .
+      args:
+        redis_version: '6.0.8'
+    hostname: server
+    command: bash
+    depends_on:
+      - redis1
+      - redis2
+      - redis3
+      - redis4
+      - redis5
+      - redis6
+    networks:
+      app_net:
+        ipv4_address: 173.17.1.1
+networks:
+  app_net:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 173.17.0.0/16
