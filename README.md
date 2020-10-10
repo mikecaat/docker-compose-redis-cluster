@@ -19,3 +19,6 @@ run in static machine.
 2. `cd docker-compose-redis-cluster`
 3. `docker-compose build`
 4. `docker-compose up` or `docker-compose up -d`
+
+### How To add a node and rebalace
+1. `docker-compose run redis-cluster "redis-scale-out"`
